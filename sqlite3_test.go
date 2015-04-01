@@ -20,7 +20,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/mattn/go-sqlite3/sqlite3_test"
+	"github.com/xeodou/go-sqlcipher/sqlite3_test"
 )
 
 func TempFilename(t *testing.T) string {
@@ -207,12 +207,12 @@ func TestUpdate(t *testing.T) {
 	if err != nil {
 		t.Fatal("Failed to update record:", err)
 	}
-	lastId, err := res.LastInsertId()
+	lastID, err := res.LastInsertId()
 	if err != nil {
 		t.Fatal("Failed to get LastInsertId:", err)
 	}
-	if expected != lastId {
-		t.Errorf("Expected %q for last Id, but %q:", expected, lastId)
+	if expected != lastID {
+		t.Errorf("Expected %q for last Id, but %q:", expected, lastID)
 	}
 	affected, _ = res.RowsAffected()
 	if err != nil {
@@ -272,12 +272,12 @@ func TestDelete(t *testing.T) {
 	if err != nil {
 		t.Fatal("Failed to delete record:", err)
 	}
-	lastId, err := res.LastInsertId()
+	lastID, err := res.LastInsertId()
 	if err != nil {
 		t.Fatal("Failed to get LastInsertId:", err)
 	}
-	if expected != lastId {
-		t.Errorf("Expected %q for last Id, but %q:", expected, lastId)
+	if expected != lastID {
+		t.Errorf("Expected %q for last Id, but %q:", expected, lastID)
 	}
 	affected, err = res.RowsAffected()
 	if err != nil {
